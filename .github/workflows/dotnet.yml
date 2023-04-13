@@ -20,5 +20,10 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
-    - name: start dotnet
-      run: dotnet run
+    - name: publicar dotnet
+      run: dotnet publish -o publish -c Reliase
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./publish
