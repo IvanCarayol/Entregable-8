@@ -24,6 +24,8 @@ jobs:
         dotnet-version: 7.0.x
     - name: publicar dotnet
       run: dotnet publish -o publish -c Reliase
+    - name: arreglar error 404
+      run: cp publish/wwwroot/index.html publish/wwwroot/404.html
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
